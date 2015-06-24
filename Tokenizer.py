@@ -5,11 +5,11 @@ class Tokenizer():
 'a', 'also', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'do',
 'for', 'have', 'is', 'in', 'it', 'of', 'or', 'see', 'so',
 'that', 'the', 'this', 'to', 'we']
-		self.addUrl(content)
+		self.tokenize(content)
 
 
 	# ADD URL ELEMENT TO UPDATE ITS TOKENS
-	def addUrl(self, content):
+	def tokenize(self, content):
 		self.content 	= content.lower()
 
 		# Replacing all kinds of symbols with whitespace
@@ -41,18 +41,6 @@ class Tokenizer():
 
 	def printMap(self):
 		print self.tokens		
-
-	def tokenize(self, term):
-		term = term.lower()
-		term = term.replace(".", " ")
-		term = term.replace(";", " ")
-		term = term.replace(",", " ")
-		term = term.replace("/", " ")
-		term = term.replace("&", " ")
-		term = term.replace("!", " ")
-		term = term.split()
-
-		return term
 
 	def sortTokens(self):
 		tmpTokens = {}
