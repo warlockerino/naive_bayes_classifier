@@ -1,10 +1,12 @@
+from Class 	import Class
+
 class ClassBank():
 	
 	def __init__(self):
 		self.classes = {}
 
-	def addClass(self, class):
-		self.classes[ class.getName() ] = class
+	def addClass(self, classInst):
+		self.classes[ classInst.getName() ] = classInst
 
 	def getClass(self, name):
 		if name in self.classes:

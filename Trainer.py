@@ -1,3 +1,6 @@
+from Class 		import Class
+from ClassBank 	import ClassBank
+
 class Trainer():
 	
 	def __init__(self, loader, classBank):
@@ -7,7 +10,7 @@ class Trainer():
 		self.train()
 
 	def train(self):
-		for f in self.loader:
+		for f in self.loader.getFiles():
 			self.trainSingle(f)
 
 	def trainSingle(self, path):
