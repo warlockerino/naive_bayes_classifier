@@ -13,3 +13,5 @@ class ClassBank():
 			return self.classes[ name ]
 		return false
 
+	def getClasses(self):
+		return self.classes

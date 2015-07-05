@@ -7,7 +7,6 @@ class Tokenizer():
 'that', 'the', 'this', 'to', 'we']
 		self.tokenize(content)
 
-
 	# ADD URL ELEMENT TO UPDATE ITS TOKENS
 	def tokenize(self, content):
 		self.content 	= content.lower()
@@ -34,7 +33,6 @@ class Tokenizer():
 
 	def getTokens(self):
 		return self.tokens
-
 
 	def search(self, term):
 		pass 
