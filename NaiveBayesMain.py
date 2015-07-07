@@ -12,8 +12,7 @@ def main():
 	b.addClass( c )
 	b.addClass( d )
 
-	t = b.getVocabulary()
-	print t.getTokens()
+	print b.getVocabularySum()
 
 	print c.getTokenSum()
 	print c.getTokenSumIgnoreDuplicates()

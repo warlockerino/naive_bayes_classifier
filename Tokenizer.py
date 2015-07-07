@@ -1,10 +1,7 @@
 class Tokenizer():
 	def __init__(self, content):
 		self.tokens = {}
-		self.stopWords = ['d01', 'd02', 'd03', 'd04', 'd05', 'd06', 'd07', 'd08',  
-'a', 'also', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'do',
-'for', 'have', 'is', 'in', 'it', 'of', 'or', 'see', 'so',
-'that', 'the', 'this', 'to', 'we']
+		self.stopWords = []
 		self.tokenize(content)
 
 	# ADD URL ELEMENT TO UPDATE ITS TOKENS

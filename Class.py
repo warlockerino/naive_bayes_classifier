@@ -20,5 +20,5 @@ class Class():
 	def getTokenSumIgnoreDuplicates(self):
 		count = 0
 		for t in self.tokens.getTokens():
-			count += self.tokens.getTokens()[t];
+			count += self.tokens.getTokens()[t]
 		return count

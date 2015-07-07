@@ -5,9 +5,11 @@ class ClassBank():
 	
 	def __init__(self):
 		self.classes = {}
+		self.tokenizer = Tokenizer("");
 
 	def addClass(self, classInst):
 		self.classes[ classInst.getName() ] = classInst
+		self.tokenizer.tokenize(classInst.contentRaw)
 
 	def getClass(self, name):
 		if name in self.classes:
@@ -18,7 +20,8 @@ class ClassBank():
 		return self.classes
 
 	def getVocabulary(self):
-		t = Tokenizer("");
-		for c in self.classes:
-			t.tokenize(self.classes[c].contentRaw)
-		return t;
+		return self.tokenizer
+
+	def getVocabularySum(self):
+		return len(self.tokenizer.getTokens())
+
