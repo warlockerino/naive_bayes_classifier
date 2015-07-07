@@ -10,7 +10,7 @@ class Classifier():
 		bestProb = 0.0
 		for c in classes:
 			for dt in docTokens:
-				probIn *= ((c.getTokenSum()) + 1 ) / (c.getTokens + classbank.getVocab())
+				probIn *= (c.getTokenSum() + 1 ) / (c.getTokens + vocab)
 			if probIn > bestProb:
 				bestProb = probIn
 				bestClass = c
