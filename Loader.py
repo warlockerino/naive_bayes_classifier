@@ -1,6 +1,5 @@
 
 class Loader():
-
 	def load_txt(self,name):
 		file = open(name,'r')
 		content = ""
@@ -9,3 +8,4 @@ class Loader():
 			content += "\n"
 
 		return content
+

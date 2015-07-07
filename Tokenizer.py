@@ -1,30 +1,26 @@
 class Tokenizer():
 	def __init__(self, content):
 		self.tokens = {}
-		self.stopWords = ['d01', 'd02', 'd03', 'd04', 'd05', 'd06', 'd07', 'd08',  
-'a', 'also', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'do',
-'for', 'have', 'is', 'in', 'it', 'of', 'or', 'see', 'so',
-'that', 'the', 'this', 'to', 'we']
+		self.stopWords = []
 		self.tokenize(content)
-
 
 	# ADD URL ELEMENT TO UPDATE ITS TOKENS
 	def tokenize(self, content):
-		self.content 	= content.lower()
+		content 		= content.lower()
 
 		# Replacing all kinds of symbols with whitespace
-		self.content 	= self.content.replace(".", " ")
-		self.content 	= self.content.replace(";", " ")
-		self.content 	= self.content.replace(",", " ")
-		self.content 	= self.content.replace("/", " ")
-		self.content 	= self.content.replace(":", " ")
-		self.content 	= self.content.replace("&", " ")
-		self.content 	= self.content.replace("|", " ")
-		self.content 	= self.content.replace("\"", " ")
-		self.content 	= self.content.replace("-", " ")
-		self.content 	= self.content.split()
+		content 	= content.replace(".", " ")
+		content 	= content.replace(";", " ")
+		content 	= content.replace(",", " ")
+		content 	= content.replace("/", " ")
+		content 	= content.replace(":", " ")
+		content 	= content.replace("&", " ")
+		content 	= content.replace("|", " ")
+		content 	= content.replace("\"", " ")
+		content 	= content.replace("-", " ")
+		content 	= content.split()
 
-		for t in self.content:
+		for t in content:
 			if t not in self.stopWords:
 				if t not in self.tokens:
 					self.tokens[t] = 1
@@ -34,7 +30,6 @@ class Tokenizer():
 
 	def getTokens(self):
 		return self.tokens
-
 
 	def search(self, term):
 		pass 
