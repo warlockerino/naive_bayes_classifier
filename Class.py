@@ -11,6 +11,9 @@ class Class():
 	def getName(self):
 		return self.name
 
+	def getTokens(self):
+		return self.tokens;
+
 	def getTokenSum(self):
 		return len(self.tokens.getTokens())
 

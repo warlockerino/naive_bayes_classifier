@@ -1,4 +1,5 @@
 from Class 	import Class
+from Tokenizer import Tokenizer
 
 class ClassBank():
 	
@@ -15,3 +16,9 @@ class ClassBank():
 
 	def getClasses(self):
 		return self.classes
+
+	def getVocabulary(self):
+		t = Tokenizer("");
+		for c in self.classes:
+			t.tokenize(self.classes[c].contentRaw)
+		return t;
