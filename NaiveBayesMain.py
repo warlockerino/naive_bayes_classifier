@@ -12,14 +12,14 @@ def main():
 	b.addClass( c )
 	b.addClass( d )
 
-	print b.getVocabularySum()
+	b.train()
 
-	print c.getTokenSum()
-	print c.getTokenSumIgnoreDuplicates()
-	
-	l = Loader()
-	
-	t = Trainer( l, b )
+	classes = b.getClasses()
+
+	for c in classes:
+		for t in classes[c].condProb:
+			prob = classes[c].condProb
+			print t,"=",prob[t]
 
 if __name__ == "__main__":
     main()
