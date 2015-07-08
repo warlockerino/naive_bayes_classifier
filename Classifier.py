@@ -15,4 +15,3 @@ class Classifier():
 				bestProb = probIn
 				bestClass = c
 		return bestClass
-		

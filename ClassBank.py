@@ -2,7 +2,7 @@ from Class 	import Class
 from Tokenizer import Tokenizer
 
 class ClassBank():
-	
+
 	def __init__(self):
 		self.classes = {}
 		self.tokenizer = Tokenizer("");
@@ -24,4 +24,3 @@ class ClassBank():
 
 	def getVocabularySum(self):
 		return len(self.tokenizer.getTokens())
-

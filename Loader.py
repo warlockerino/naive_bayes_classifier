@@ -8,4 +8,3 @@ class Loader():
 			content += "\n"
 
 		return content
-

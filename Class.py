@@ -1,7 +1,6 @@
 from Tokenizer 	import Tokenizer
-
 class Class():
-	
+
 	def __init__(self, name, content, count):
 		self.name = name
 		self.contentRaw = content
