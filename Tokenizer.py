@@ -4,11 +4,9 @@ class Tokenizer():
 		self.stopWords = []
 		self.tokenize(content)
 
-	# ADD URL ELEMENT TO UPDATE ITS TOKENS
 	def tokenize(self, content):
-		content 		= content.lower()
+		content 	= content.lower()
 
-		# Replacing all kinds of symbols with whitespace
 		content 	= content.replace(".", " ")
 		content 	= content.replace(";", " ")
 		content 	= content.replace(",", " ")

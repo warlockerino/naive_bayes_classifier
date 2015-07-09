@@ -1,3 +1,4 @@
+from __future__ import division
 from Class 	import Class
 from Tokenizer import Tokenizer
 
@@ -9,7 +10,7 @@ class ClassBank():
 		self.tokenizer = Tokenizer("");
 
 	def addClass(self, classInst):
-		self.classes[ classInst.getName() ] = classInst
+		self.classes[classInst.getName()] = classInst
 		self.tokenizer.tokenize(classInst.contentRaw)
 		self.documentCount = self.documentCount + classInst.count
 
@@ -34,7 +35,11 @@ class ClassBank():
 			c = self.classes[c]
 			c.setPrior(c.count/n)
 			t = c.getTokens().getTokens()
-			for key in c.condProb:
-				c.condProb[key] = (float) (t[key] + 1) / (len(t) + v[key])
-
-
+			tCount = 0
+			for tKey, tValue in t.iteritems():
+				tCount = tCount + (tValue + 1)
+			for key, value in v.iteritems():
+				vCount = 0
+				if key in t:
+					vCount = t[key]
+				c.condProb[key] = (vCount + 1)/(tCount + len(v))

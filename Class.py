@@ -13,10 +13,15 @@ class Class():
 	def setPrior(self, prior):
 		self.prior = prior
 
-	def condProbs(self):
+	def getPrior(self):
+		return self.prior
+
+	def getCondProbs(self):
 		return self.condProb
 
-	def condProb(self, token):
+	def getCondProb(self, token):
+		if token not in self.condProb:
+			return 0
 		return self.condProb[token]
 
 	def getName(self):

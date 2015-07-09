@@ -2,24 +2,42 @@ from Class 		import Class
 from ClassBank 	import ClassBank
 from Trainer 	import Trainer
 from Loader 	import Loader
+from Tokenizer 	import Tokenizer
+from Classifier import Classifier
+import glob, os
 
 def main():
+	
+	folders = {}
+	folders["politik"] = "data/politik"
+	folders["sport"] = "data/sport"
+	folders["wirtschaft"] = "data/wirtschaft"
 
-	c = Class( "Politik", "Das ist der Inhalt der Klasse", 10 )
-	d = Class( "Wirtschaft", "Noch eine Geschichte mit Inhalt", 10 )
+	bank = ClassBank()
+	l = Loader()
 
-	b = ClassBank()
-	b.addClass( c )
-	b.addClass( d )
+	# train data
+	for classname, folder in folders.iteritems():
+		count = 0
+		content = ""
+		for file in os.listdir(folder + "/train/"):
+			if file.endswith(".txt"):
+				count = count + 1
+				content = content + " " + l.load_txt(folder + "/train/" + file)
+		c = Class(classname, content, count)
+		bank.addClass(c)
 
-	b.train()
+ 	bank.train()
+ 	c = Classifier()
 
-	classes = b.getClasses()
-
-	for c in classes:
-		for t in classes[c].condProb:
-			prob = classes[c].condProb
-			print t,"=",prob[t]
+ 	# test data
+ 	for classname, folder in folders.iteritems():
+ 		print "\n=== Testing",classname, "===\n"
+		for file in os.listdir(folder + "/test/"):
+			if file.endswith(".txt"):
+				tokenizer = Tokenizer(l.load_txt(folder + "/test/" + file))
+				classifiedClass = c.classify(tokenizer.getTokens(), bank)
+				print file,"=",classifiedClass.getName()
 
 if __name__ == "__main__":
     main()
