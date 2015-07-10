@@ -11,40 +11,6 @@ import glob, os
 
 def main():
 	
-	folders = {}
-	folders["politik"] = "data/politik"
-	folders["sport"] = "data/sport"
-	folders["wirtschaft"] = "data/wirtschaft"
-
-	bank = ClassBank()
-	 
-	classes = {}
-	
-	classes["politik"] = "data/politik/train/"
-	classes["wirtschaft"] = "data/wirtschaft/train/"
-
-	for c in classes:
-		count = 0
-		content = ""
-
-		for file in os.listdir(classes[c]):
-			if file.endswith(".txt"):
-				l = Loader()
-				content += " " + l.load_txt(classes[c] + file)
-				count = count + 1
-
-		c = Class(c, content, count)
-		bank.addClass(c)
-
-	lo = Loader()
-
-	
-	to = Tokenizer(lo.load_txt("data/wirtschaft/test/w011.txt")) 
-
-	classi = Classifier()
-	bla = classi.classify(to.getTokenList(), bank)
-	print(bla.getName())
-
 
 	bank = ClassBank()
 	l = Loader()
