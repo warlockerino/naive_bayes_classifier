@@ -1,6 +1,3 @@
-import os
-from Tokenizer	import Tokenizer
-from Classifier import Classifier
 from Class 		import Class
 from ClassBank 	import ClassBank
 from Trainer 	import Trainer
@@ -11,6 +8,10 @@ import glob, os
 
 def main():
 	
+	folders = {}
+	folders["politik"] = "data/politik"
+	folders["sport"] = "data/sport"
+	folders["wirtschaft"] = "data/wirtschaft"
 
 	bank = ClassBank()
 	l = Loader()
@@ -37,7 +38,6 @@ def main():
 				tokenizer = Tokenizer(l.load_txt(folder + "/test/" + file))
 				classifiedClass = c.classify(tokenizer.getTokens(), bank)
 				print file,"=",classifiedClass.getName()
-
 
 if __name__ == "__main__":
     main()

@@ -3,7 +3,7 @@ from Class 	import Class
 from Tokenizer import Tokenizer
 
 class ClassBank():
-
+	
 	def __init__(self):
 		self.classes = {}
 		self.documentCount = 0
@@ -28,7 +28,6 @@ class ClassBank():
 	def getVocabularySum(self):
 		return len(self.tokenizer.getTokens())
 
-
 	def train(self):
 		v = self.getVocabulary().getTokens()
 		n = self.documentCount
@@ -44,4 +43,3 @@ class ClassBank():
 				if key in t:
 					vCount = t[key]
 				c.condProb[key] = (vCount + 1)/(tCount + len(v))
-

@@ -19,4 +19,3 @@ class Classifier():
 				currentMax = scores[key]
 				currentMaxClass = c.getName()
 		return classbank.getClass(currentMaxClass)
-
